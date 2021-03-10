@@ -1,0 +1,125 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="feedback.css">
+	<script type="text/javascript" >
+function input()
+{
+     
+	var status=true;
+	var fname=document.getElementById("text1").value;
+	if ((fname == "")||(fname.length>40)) 
+	{
+        alert("First name must be required and less than 40 characters.");
+		document.getElementById("text1").focus();
+		status=false;
+    }
+    var mname=document.getElementById("text2").value;
+	if(status)
+	{
+		var lname=document.getElementById("text3").value;
+		if ((lname == "")||(lname.length>40))
+		{
+        alert("Last name must be required and less than 40 characters.");
+		document.getElementById("text3").focus();
+		status=false;
+		}
+	}
+    if(status)
+	{
+		var gender=true;
+		if(document.getElementById("radio1").checked)
+			gender="Mr.";
+		else if(document.getElementById("rad").checked)
+			gender="Mrs.";
+		if(gender==true)
+		{
+			alert("Please select your gender.");
+			document.getElementById("radio1").focus();
+			status=false;
+		}
+	}
+	if(status)
+	{
+		var fullName= gender + " " + fname + " " + mname + " " + lname;
+		var suggest = document.getElementById("text4").value;
+		var feedback=document.getElementById("Feedback1").value;
+        if(suggest=="")
+		{
+			alert("Please give your feedback");
+			document.getElementById("text4").focus();
+		}
+		else
+		{ 
+
+			feedback=fullName + " " + suggest + "     "+feedback;
+			document.getElementById("Feedback1").innerHTML=feedback;
+            document.getElementById("text1").value="";
+	        document.getElementById("text2").value="";
+	        document.getElementById("text3").value="";
+	        document.getElementById("text4").value="";
+            var rdbutton=document.getElementById("radio1");
+            rdbutton.checked=false;
+            var rbbutton=document.getElementById("rad");
+            rbbutton.checked=false;
+          
+		}
+
+	}
+}
+
+function clearb()
+{
+
+	
+	document.getElementById("text1").value="";
+	document.getElementById("text2").value="";
+	document.getElementById("text3").value="";
+	document.getElementById("text4").value="";
+   var rdbutton=document.getElementById("radio1");
+   rdbutton.checked=false;
+   var rbbutton=document.getElementById("rad");
+   rbbutton.checked=false;
+}
+
+</script>
+</head>
+<body bgcolor="silver">
+<header></header>
+
+<div id="d0"> <h2 id="hh1">Feedback</h2> <h2 id="hh2"> Your Thoughts</h2>
+</div>
+
+
+<div id="d1">
+<table id="tb1">
+
+<tr>
+<td>First Name<td><input type="text" id="text1"  required/></td></tr>
+<tr>
+<td>Middle Name<td><input type="text" id="text2" required/></td></tr>
+<tr>
+<td>Last Name<td><input type="text" id="text3" required/></td></tr>
+<tr>
+<td>Suggested<td><input type="text" id="text4" required/></td></tr>
+<tr>
+<td>Gender<td><input type="radio" name="r1" id="radio1"/> Male<input type="radio" name="r1" id="rad"/> Female</td></tr>
+<tr><td align="center" colspan="2"><br>
+<input type="submit" value="submit" class="Button"  onclick="input()">&nbsp&nbsp
+ <input type="submit" value="clear"  class="Button" onclick="clearb()"></td></tr>
+</table>
+</div>
+
+<div id="d2">
+
+    <section style="float:right;width:100%">
+        <textarea style="height:400px;width:60%" type="text"  id="Feedback1" name="text"> </textarea>
+    </section>
+	
+</div><br><br><br><br><br>
+<div id="d0"> <h2 id="hhdd1">Desgined By Deepak Kumar@ 2021 All Right Reserved</h2>
+
+	</div>
+
+
+</body>
+</html>
